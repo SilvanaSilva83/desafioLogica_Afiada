@@ -1,0 +1,31 @@
+namespace desafio_IMC
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Declare variables
+            string name;
+            double weights, height = 0, imc;
+
+            //Input
+            Console.Write("Input your name: ");
+            name = Console.ReadLine();
+
+            Console.Write("Input your weights: ");
+            weights = double.Parse(Console.ReadLine());
+
+            Console.Write("Input your height: ");
+            height = double.Parse(Console.ReadLine());
+
+            //Process
+            imc = (weights / (height * height));
+
+            imc = Math.Round(imc, 2); // Round to 2 decimal places
+
+
+            //Output
+            Console.WriteLine($"\nHello {name}. Your IMC is: " + imc);
+        }
+    }
+}
