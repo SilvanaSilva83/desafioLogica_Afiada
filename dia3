@@ -1,0 +1,524 @@
+using System.Diagnostics.Metrics;
+
+namespace desafioDia3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // ADICAO++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ +
+
+            //Declaracao
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            const string TAB_FORMAT = "{0,-40}";
+            int opcao = 0;
+
+            //Menu de Opções
+            while (true)
+            {
+                Console.WriteLine("Escolha uma das opções abaixo: ");
+                Console.WriteLine("1 - Soma de Pontos\n2 - Horas Trabalhadas\n3 - Soma Salarial\n0 - Sair do Programa");
+
+                Console.Write("Digite a opção desejada: ");
+                opcao = int.Parse(Console.ReadLine());
+
+                if (opcao == 0)
+                {
+                    Console.WriteLine("Sair do Programa.");
+                    break;
+                }
+                else if (opcao == 1)
+                {
+                    //Controladores Aritmeticos - Soma Par1
+                    Console.Write("\nDigite a pontuacao Sport - Jogo 1: ");
+                    int pontuacaoJogo01 = int.Parse(Console.ReadLine());
+
+                    Console.Write("\nDigite a pontuacao Sport - Jogo 2: ");
+                    int pontuacaoJogo02 = int.Parse(Console.ReadLine());
+
+                    int pontuacaoTotal = pontuacaoJogo01 + pontuacaoJogo02;
+
+                    Console.WriteLine(TAB_FORMAT, "\nPontuacao acumulada do Sport Club Recife : " + pontuacaoTotal);
+                }
+                else if (opcao == 2)
+                {
+                    //Controladores Aritmeticos - Soma Par2
+                    Console.Write("Digite Digite as horas trabalhadas Segunda: ");
+                    int horasSegunda = int.Parse(Console.ReadLine());
+
+                    Console.Write("Digite Digite as horas trabalhadas Terca: ");
+                    int horasTerca = int.Parse(Console.ReadLine());
+
+                    Console.Write("Digite Digite as horas trabalhadas Quarta: ");
+                    int horasQuarta = int.Parse(Console.ReadLine());
+
+                    Console.Write("Digite Digite as horas trabalhadas Quinta: ");
+                    int horasQuinta = int.Parse(Console.ReadLine());
+
+                    Console.Write("Digite Digite as horas trabalhadas Sexta: ");
+                    int horasSexta = int.Parse(Console.ReadLine());
+
+                    int totalTrabalhadas = horasSegunda + horasTerca + horasQuarta + horasQuinta + horasSexta;
+
+                    Console.WriteLine(TAB_FORMAT, "Total de horas trabalhadas na semana: " + totalTrabalhadas);
+                }
+                else if (opcao == 3)
+                {
+                    //Controladores Aritmeticos - Soma Par3
+                    Console.Write("Digite o Salario Habitante 1: ");
+                    double salario1 = double.Parse(Console.ReadLine());
+
+                    Console.Write("Digite o Salario Habitante 2: ");
+                    double salario2 = double.Parse(Console.ReadLine());
+
+                    Console.Write("Digite o Salario Habitante 3: ");
+                    double salario3 = double.Parse(Console.ReadLine());
+
+                    double totalSalario = salario1 + salario2 + salario3;
+                }
+                else
+                {
+                    Console.WriteLine("Opção inválida. Tente novamente.");
+                }
+            }
+
+            // Subtracao++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ +
+            double valorCompra = 0;
+            int counter = 0, counter_Neg = 0;
+            double totalCompras = 0, totalReembolso = 0;
+            string AddicionalBuys = "+";
+
+            Console.WriteLine("Controle de Compras Cartão de Crédito. Digite '#' para sair\n");
+            Console.Write("Digite '+' para adicionar valor ou \nDigite '-' para reembolso: ");
+            AddicionalBuys = Console.ReadLine();
+
+            if (AddicionalBuys == "+")
+            {
+                Console.WriteLine("Adicionar valor das compras. Digite 0 para sair do Menu Adicionar");
+                Console.Write("Digite valor que deseja adicionar a fatura - Compra 1: ");
+                valorCompra = double.Parse(Console.ReadLine());
+                while (valorCompra != 0)
+                {
+                    counter++;
+                    totalCompras += valorCompra; // Adiciona o valor da compra ao total
+
+                    Console.Write($"\nDigite valor que deseja adicionar a fatura - Compra {counter + 1}: ");
+                    valorCompra = double.Parse(Console.ReadLine());
+                }
+                if (valorCompra == 0)
+                {
+                    Console.WriteLine("Saindo do Menu Adicionar.");
+                }
+
+                Console.Write("Digite '+' para adicionar valor ou \nDigite '-' para reembolso: ");
+                AddicionalBuys = Console.ReadLine();
+            }
+            else if (AddicionalBuys == "-")
+            {
+                Console.Write("Informar valor a ser ressacido. Digite 0 para voltar ao Menu Principal");
+                Console.Write($"\nDigite valor do Ressacimento 1: ");
+                double reembolsoValor = double.Parse(Console.ReadLine());
+                while (reembolsoValor != 0)
+                {
+                    counter_Neg++;
+                    totalReembolso += reembolsoValor;
+
+
+                    Console.Write($"\nDigite valor do Ressacimento {counter_Neg + 1}: ");
+                    reembolsoValor = double.Parse(Console.ReadLine());
+
+                }
+                if (reembolsoValor == 0)
+                {
+                    Console.WriteLine("Saindo do Menu Reembolso.");
+                }
+            }
+            else if (AddicionalBuys == "#")
+            {
+                Console.WriteLine("Saindo do Programa.");
+            }
+            else
+            {
+                Console.WriteLine("Opção inválida. Tente novamente.");
+            }
+
+            // Exibe o total de compras e reembolsos
+            Console.WriteLine($"Valor total das compras: {totalCompras}");
+            Console.WriteLine($"Valor total do reembolso: " + totalReembolso);
+            Console.WriteLine($"Valor total da Fatura: {totalCompras - totalReembolso}");
+
+            //Subtracao II
+
+            //Declaracao
+            int anoNasc = 0, anoAtual = 0, idade = 0;
+            string nome;
+
+            //Entrada
+            Console.Write("\nInforme seu nome: ");
+            nome = Console.ReadLine();
+
+            Console.Write("\nDigite o ano de nascimento: ");
+            anoNasc = int.Parse(Console.ReadLine());
+
+            Console.Write("\nDigite o ano atual: ");
+            anoAtual = int.Parse(Console.ReadLine());
+            idade = anoAtual - anoNasc;
+
+            //Saida
+
+            Console.Write($"\nOla {nome}, voce nasceu em {anoNasc}, sua idade ate {anoAtual} e {idade} ");
+
+            //Subtracao III  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+            //Declaracao
+
+            double creditoInicial = 200, casa = 100, carro = 1000, gravata = 50, bambole = 2, price;
+            double totalCompra = 0;
+            int contador = 0;
+            //Entrada
+            Console.Write("\nBanco Imobiliario ");
+            Console.Write("\nSelecione no menu abaixo item para a sua cesta: ");
+            Console.WriteLine("" +
+                "\n1 - Casa: R$ 100,00" +
+                "\n2 - Carro: R$ 1000,00" +
+                "\n3 - Gravata: R$ 50,00" +
+                "\n4 - Bambole: R$ 2,00" +
+                "\n0 - Somar gastos");
+
+            while (true)
+            {
+                Console.Write("\nDigite numero do item: ");
+                int item = int.Parse(Console.ReadLine());
+                contador++;
+
+                //Processamento
+                switch (item)
+                {
+                    case 1:
+                        Console.Write($"Casa €: {casa:0.00}");
+                        totalCompra += casa;
+                        break;
+                    case 2:
+                        Console.WriteLine($"Carro €: {carro:0.00}");
+                        totalCompra += carro;
+                        break;
+                    case 3:
+                        Console.WriteLine($"Gravata €: {gravata:0.00}");
+                        totalCompra += gravata;
+                        break;
+                    case 4:
+                        Console.WriteLine($"Bambole €: {bambole:0.00}");
+                        totalCompra += bambole;
+                        break;
+                    case 0:
+                        Console.WriteLine("\n---------------- Resultado ---------------\n");
+                        Console.WriteLine($"Total de reembolso: € {creditoInicial:0.00}");
+                        Console.WriteLine($"Total de compras: € {totalCompra:0.00}");
+                        Console.WriteLine($"Credito final: € {creditoInicial - totalCompra:0.00}");
+                        Console.WriteLine("\n----------------------------------------------\n");
+
+                        if (totalCompra > creditoInicial)
+                        {
+                            Console.WriteLine($"Loser! Credito insuficiente, saldo devedor: € {totalCompra - creditoInicial:0.00}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Winner! Credito suficiente, saldo devedor: € {creditoInicial - totalCompra:0.00}");
+                        }
+
+                        Console.Write("\nSelecione no menu abaixo item para a sua cesta: ");
+                        Console.WriteLine("" +
+                            "\n1 - Casa: R$ 100,00" +
+                            "\n2 - Carro: R$ 1000,00" +
+                            "\n3 - Gravata: R$ 50,00" +
+                            "\n4 - Bambole: R$ 2,00" +
+                            "\n0 - Somar gastos");
+                        break;
+
+                    default:
+                        Console.WriteLine("Opção inválida.");
+                        break;
+                } // end switch
+            } // end while
+
+            //Multiplicacao I/ II++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ +
+
+            //Processamento
+            double creditoInicial = 200, casa = 100, carro = 1000, gravata = 50, bambole = 2, price;
+            double totalCompra = 0;
+            int quantidadeCasa = 0, quantidadeCarro = 0, quantidadeGravata = 0, quantidadeBambole = 0;
+            int contador = 0;
+
+            //Entrada
+            Console.Write("\nBanco Imobiliario ");
+            Console.Write("\nSelecione no menu abaixo item para a sua cesta: ");
+            Console.WriteLine("" +
+                "\n1 - Casa: R$ 100,00" +
+                "\n2 - Carro: R$ 1000,00" +
+                "\n3 - Gravata: R$ 50,00" +
+                "\n4 - Bambole: R$ 2,00" +
+                "\n0 - Somar gastos");
+
+            while (true)
+            {
+                Console.Write("\nDigite numero do item: ");
+                int item = int.Parse(Console.ReadLine());
+
+                Console.Write("Digite a quantidade de itens: ");
+                int quantidade = int.Parse(Console.ReadLine());
+                contador++;
+
+                switch (item)
+                {
+                    case 1:
+                        //price = casa * quantidade;
+                        quantidadeCasa += quantidade; // Acumula quantidade de casas
+                        totalCompra += casa * quantidade; // Soma ao total
+                        Console.WriteLine($"Casa {quantidade} x Preco: € {casa:0.00}");
+                        break;
+                    case 2:
+                        //price = carro * quantidade;
+                        quantidadeCarro += quantidade;
+                        totalCompra += carro * quantidade;
+                        Console.WriteLine($"Carro {quantidade} x {carro:0.00} = " + (carro * quantidade));
+                        break;
+                    case 3:
+                        //price = gravata * quantidade;
+                        quantidadeGravata += quantidade;
+                        totalCompra += gravata * quantidade;
+                        Console.WriteLine($"Gravata {quantidade} x {gravata:0.00} = " + (gravata * quantidade));
+                        break;
+                    case 4:
+                        //price = bambole * quantidade;
+                        quantidadeBambole += quantidade;
+                        totalCompra += bambole * quantidade;
+                        Console.WriteLine($"Bambole {quantidade} x {bambole:0.00} = " + (bambole * quantidade));
+                        break;
+                    case 0:
+                        Console.WriteLine("\n---------------- Itens NF ---------------\n");
+
+                        if (quantidadeCasa > 0)
+                        {
+                            Console.WriteLine($"Casa {quantidadeCasa} x {casa:0.00} = " + (casa * quantidadeCasa));
+                        }
+                        else
+                        {
+                            Console.WriteLine("");
+                        }
+
+                        if (quantidadeCarro > 0)
+                        {
+                            Console.WriteLine($"Carro {quantidadeCarro} x {carro:0.00} = " + (carro * quantidade));
+                        }
+                        else
+                        {
+                            Console.WriteLine("");
+                        }
+
+                        if (quantidadeGravata > 0)
+                        {
+                            Console.WriteLine($"Gravata {quantidadeGravata} x {gravata:0.00} = " + (gravata * quantidade));
+                        }
+                        else
+                        {
+                            Console.WriteLine("");
+                        }
+
+                        if (quantidadeBambole > 0)
+                        {
+                            Console.WriteLine($"Bambole {quantidadeBambole} x {bambole:0.00} = " + (bambole * quantidade));
+                        }
+                        else
+                        {
+                            Console.WriteLine("");
+                        }
+
+                        Console.WriteLine("\n---------------- Valor total NF ---------------\n");
+
+                        Console.WriteLine($"Total de compras: € {totalCompra:0.00}");
+                        Console.WriteLine($"Credito final: € {creditoInicial - totalCompra:0.00}");
+                        Console.WriteLine("\n----------------------------------------------\n");
+
+                        if (totalCompra > creditoInicial)
+                        {
+                            Console.WriteLine($"Loser! Credito insuficiente, saldo devedor: € {totalCompra - creditoInicial:0.00}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Winner! Credito suficiente, saldo devedor: € {creditoInicial - totalCompra:0.00}");
+                        }
+                        return; // Sai do loop
+
+                    default:
+                        Console.WriteLine("Opção inválida.");
+                        break;
+                }// end switch
+
+            }// end while
+
+            //Multiplicacao II/II  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+            //Processamento
+            int[] quantidadeItens = new int[4]; //[0,1, 2, 3]
+            string[] itens = { "Casa", "Carro", "Gravata", "Bambole" };
+            double[] preco = { 100, 1000, 50, 2 };
+            double creditoInicial = 200;
+            double totalCompra = 0;            
+            int contador = 0, item=0,qtd=0;
+
+            //Entrada
+            Console.Write("\nBanco Imobiliario ");
+            Console.Write("\nSelecione no menu abaixo item para a sua cesta: ");
+            Console.WriteLine("" +
+            "\n1 - Casa: R$ 100,00" +
+            "\n2 - Carro: R$ 1000,00" +
+            "\n3 - Gravata: R$ 50,00" +
+            "\n4 - Bambole: R$ 2,00" +
+            "\n0 - Somar gastos");
+
+        while (true)
+        {
+            Console.Write("\nDigite numero do item: ");
+            item = int.Parse(Console.ReadLine());
+
+                if (item == 0)
+                {
+                    Console.WriteLine("\n---------------- Itens NF ---------------\n");
+
+                    for (int i = 0; i < itens.Length; i++)
+                    {
+                        if (quantidadeItens[i] > 0)
+                        {
+                            Console.WriteLine($"{itens[i]} {quantidadeItens[i]} x {preco[i]:0.00} = " + (preco[i] * quantidadeItens[i]));
+                        }
+                    }
+
+                    Console.WriteLine("\n---------------- Valor total NF ---------------\n");
+
+                    Console.WriteLine($"Total de compras: € {totalCompra:0.00}");
+                    Console.WriteLine($"Credito final: € {creditoInicial - totalCompra:0.00}");
+                    Console.WriteLine("\n----------------------------------------------\n");
+
+                    if (totalCompra > creditoInicial)
+                    {
+                        Console.WriteLine($"Loser! Credito insuficiente, saldo devedor: € {totalCompra - creditoInicial:0.00}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Winner! Credito suficiente, saldo devedor: € {creditoInicial - totalCompra:0.00}");
+                    }
+                    break;
+                }
+
+                Console.Write("Digite a quantidade de itens: ");
+                qtd = int.Parse(Console.ReadLine());
+                contador++;
+
+                if (item >= 1 && item <= 4)
+                {
+                    quantidadeItens[item-1] += qtd; // Acumula quantidade de itens //O índice [item - 1] garante que o item "1" seja armazenado no índice 0 do array, e assim por diante.
+                    totalCompra += preco[item-1] * qtd; // Soma ao total
+                    Console.WriteLine($"{itens[item-1]} {qtd} x Preco: € {preco[item-1]:0.00}");
+                }
+                else
+                {
+                    Console.WriteLine("Opção inválida.");
+                }
+            } //end while
+
+            //Multiplicacao III  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            double area = 0, lado;
+
+            Console.Write("\nInforme o metro do lado A de um quadrado: ");
+            lado = double.Parse(Console.ReadLine());
+            area = lado * lado;
+            Console.WriteLine($"Area do quadrado: {area:0.00}");
+
+            //Multiplicacao IV
+            double horasTrabalhadas = 0, salarioHora = 13.50;
+
+            Console.WriteLine("\nControle de horas trabalhadas");
+            Console.WriteLine("\n-------------------------------------");
+            Console.Write("Digite o total de horas trabalhadas: ");
+            horasTrabalhadas = double.Parse(Console.ReadLine());
+
+            Console.WriteLine($"O total de horas trabalhadas: {horasTrabalhadas}");
+            Console.WriteLine("Valor hora trabalhada: " + salarioHora);
+            Console.WriteLine($"O valor total a receber: {horasTrabalhadas * salarioHora:0.00}");
+
+            //Divisao I  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+            doubel inputNumber = 0;
+
+            Console.Write("\nInforme um numero: ");
+            inputNumber = double.Parse(Console.ReadLine());
+
+             
+            if(inputNumber % 2==0)
+            {
+                Console.WriteLine($"O numero {inputNumber} e par.");
+            }
+            else
+            {
+                Console.WriteLine($"O numero {inputNumber} e impar.");
+            }
+
+            //Divisao II +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+            //Declare
+            string name;
+            double weights, height = 0, imc;
+
+            //Input
+            Console.Write("Input your name: ");
+            name = Console.ReadLine();
+
+            Console.Write("Input your weights: ");
+            weights = double.Parse(Console.ReadLine());
+
+            Console.Write("Input your height: ");
+            height = double.Parse(Console.ReadLine());
+
+            //Process
+            imc = (weights / (height * height));
+
+            imc = Math.Round(imc, 2); // Round to 2 decimal places
+
+
+            //Output
+            Console.WriteLine($"\nHello {name}. Your IMC is: " + imc);
+
+            if(imc < 18.5)
+            {
+                Console.WriteLine("Vc esta abaixo de peso.");
+            }
+            else if (imc >= 18.5 && imc < 24.9)
+            {
+                Console.WriteLine("Parabens. Vc tem um peso considerado saudavel");
+            }
+            else if (imc >= 25 && imc < 29.9)
+            {
+                Console.WriteLine("Vc esta com sobrepeso");
+            }
+            else
+            {
+                Console.WriteLine("Vc esta com Obesidade");
+            }
+
+            //Ajuda de custo - Locomocao
+
+            double KMperLitro = 12, valorLitro = 5.50,DistanciaKM = 0,ajudaCusto = 0;
+            Console.Write("Informe a distancia em KM: ");
+            DistanciaKM = double.Parse(Console.ReadLine());
+
+            Console.Write("Informe o valor do litro de combustivel: ");
+            valorLitro = double.Parse(Console.ReadLine());
+
+            Console.Write("Informe o KM por litro: ");
+            KMperLitro = double.Parse(Console.ReadLine());
+
+            ajudaCusto = Math.Round((DistanciaKM / KMperLitro) * valorLitro,2);
+            //ajudaCusto = Math.Round(ajudaCusto, 2); // Round to 2 decimal places
+            Console.WriteLine($"Ajuda de custo: {ajudaCusto:0.00}");
+        }
+    }
