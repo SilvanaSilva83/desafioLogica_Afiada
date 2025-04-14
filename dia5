@@ -1,0 +1,71 @@
+//Desafio Dia 5
+
+// 1. Crie um programa que calcule o rendimento de um investimento inicial de R$ 1000,00 em 10 anos, com uma taxa de juros de 12% ao ano.
+double investimentoInicial = 1000.0, rendimentoFinal;
+double taxaJuros = 0.12;
+int tempo = 10;
+int ano = 1;
+
+
+for (ano = 1; ano <= tempo; ano++)
+{
+    investimentoInicial += investimentoInicial * taxaJuros;                                
+}
+
+rendimentoFinal = investimentoInicial;
+Console.WriteLine($"REndimento em 10 anos sera de: {rendimentoFinal:0.00}");
+
+//Contagem regressiva para lancamento de foguete////////////////////////////////////////////////////////////////////////////////////////////
+int contagemRegressiva = 10, contagem=1, contagemAtencao=3;
+string viso = "Atenção! Foguete prestes a decolar!";
+string lancamento = "Lançamento!";
+
+Console.WriteLine("Contagem regressiva para o lancamento do foguete:");
+
+for(contagemRegressiva=10; contagemRegressiva>=1; contagemRegressiva--)
+{
+    //contagemRegressiva--;
+
+    Console.WriteLine(contagemRegressiva);
+
+    if(contagemRegressiva <= 4 && contagemRegressiva > 1)
+    {
+        Console.Write($"{(contagemRegressiva-1)} Atenção! Foguete prestes a decolar!");
+    }               
+}
+
+Console.WriteLine(lancamento);
+
+// Calculo de juros simples//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+double capital = 1000, taxa = 0.05, acumulado, capitalInicial = capital;
+int anos = 0, tempoEstimulado = 10;
+
+Console.WriteLine("Digite o tempo em anos para calcular os juros simples:");
+tempoEstimulado = Convert.ToInt32(Console.ReadLine());
+
+for (anos = 1; anos <= tempoEstimulado; anos++)
+{
+    capital += capital * taxa;
+
+}
+acumulado = capital;
+
+Console.WriteLine($"Em {tempoEstimulado} anos o seu capital {capitalInicial:0.00} passou para {acumulado:0.00}, com a taxa de juros de {taxa * 100}% ao ano");
+
+// Compras parceladas //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+double valorCompra = 1200.0;
+int Parcela = 0, n_Parcela = 0;
+
+Console.WriteLine("Digite o valor da compra:");
+valorCompra = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Digite o numero de parcelas:");
+n_Parcela = Convert.ToInt32(Console.ReadLine());
+
+for (Parcela = 1; Parcela <= n_Parcela; Parcela++)
+{
+
+    Console.WriteLine($"Parcela {Parcela}. Valor: € {valorCompra / n_Parcela:0.00}");
+}
+                
