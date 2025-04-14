@@ -37,20 +37,24 @@ for(contagemRegressiva=10; contagemRegressiva>=1; contagemRegressiva--)
 Console.WriteLine(lancamento);
 
 // Calculo de juros simples//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-double capital = 1000, taxa = 0.05, acumulado, capitalInicial = capital;
-int anos = 0, tempoEstimulado = 10;
+double capital = 1000, taxa = 0.05, capitalInicial = 0, n_vezes = 0, retorno_financeiro = 0;
+int anos = 0;
 
-Console.WriteLine("Digite o tempo em anos para calcular os juros simples:");
-tempoEstimulado = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Digite o capital inicial:");
+capitalInicial = Convert.ToDouble(Console.ReadLine());
 
-for (anos = 1; anos <= tempoEstimulado; anos++)
+Console.WriteLine("Digite o numero de vezes que deseja multiplicar valor:");
+n_vezes = Convert.ToInt32(Console.ReadLine());
+
+retorno_financeiro = capitalInicial * n_vezes;
+
+while (capitalInicial < retorno_financeiro)
 {
-    capital += capital * taxa;
-
+    capitalInicial += capitalInicial * taxa;
+    anos++;
 }
-acumulado = capital;
 
-Console.WriteLine($"Em {tempoEstimulado} anos o seu capital {capitalInicial:0.00} passou para {acumulado:0.00}, com a taxa de juros de {taxa * 100}% ao ano");
+Console.WriteLine($"Serao necessario {anos} anos para dobra o capital de {capital:0.00} para {retorno_financeiro:0.00}, com a taxa de juros de {taxa * 100}% ao ano");
 
 // Compras parceladas //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
