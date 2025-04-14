@@ -1,0 +1,217 @@
+//Desafio dia 4
+
+//CNH++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+int idade50 = 50, idade70 = 70;
+string dataCorrente, nextCHN;
+double timeLef;
+DateTime dataDeExpedicao;
+
+bool primeiraCNH = true;
+
+Console.Write("Digite o seu nome: ");
+string nome = Console.ReadLine();
+
+Console.Write("Digite a sua idade: ");
+int idade = int.Parse(Console.ReadLine());            
+
+Console.Write("Digite a data de expedição da CNH (formato:dd/MM/yyyy): ");    
+if (DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataDeExpedicao))
+{
+    Console.WriteLine("");
+}
+else
+{
+    Console.WriteLine("Formato inválido. Certifique-se de usar o formato dd/MM/yyyy.");
+}
+
+Console.Write($"Ola {nome}, Essa e a sua primeira CNH? Sim ou Nao");
+primeiraCNH = Console.ReadLine().ToLower() == "sim" ? true : false;
+
+if (primeiraCNH == true)
+{
+    Console.Write($"{nome}, você tem ate {dataDeExpedicao.AddYears(1)} tirar CNH Definitiva. Apresente-se ao Detran mais proximo do seu endereco em 1 ano.");
+}
+else if (primeiraCNH == false)
+{
+    if (idade < 50)
+    {
+        Console.Write($"{nome}, você tem ate {dataDeExpedicao.AddYears(10)} para renovar sua CNH. Apresente-se ao Detran mais proximo do seu endereco em 10 anos.");
+
+    }
+    else if (idade >= 50 && idade < 70)
+    {
+        Console.Write($"{nome}, você tem ate  {dataDeExpedicao.AddYears(5)}para renovar sua CNH. Apresente-se ao Detran mais proximo do seu endereco em 5 anos.");
+    }
+    else
+    {
+        Console.Write($"{nome}, você tem ate {dataDeExpedicao.AddYears(3)} (3 anos) para renovar sua CNH. Apresente-se ao Detran mais proximo do seu endereco em 3 anos.");
+    }
+}
+
+//Performace de Aluno++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Parte I
+double nota;
+string nomeAluno;            
+
+Console.Write("Digite o nome do aluno: ");
+nomeAluno = Console.ReadLine();
+
+Console.Write("Digite a nota do aluno: ");
+nota = double.Parse(Console.ReadLine());
+
+if (nota < 5)
+{
+    Console.Write($"{nomeAluno}, sua nota foi Insuficiente.");
+}
+else if (nota < 6)
+{
+    Console.Write($"{nomeAluno}, sua nota foi Regular.");
+}
+else if (nota < 7.5)
+{
+    Console.Write($"{nomeAluno}, sua nota foi Boa.");
+}
+else if ( nota < 9)
+{
+    Console.Write($"{nomeAluno}, sua nota foi Muito Boa.");
+}
+else
+{
+    Console.Write($"{nomeAluno}, sua nota foi Excelente.");
+}
+
+// Parte I
+int notAluno = 85;
+string status;
+
+Console.Write("Digite o nome do aluno: ");
+nomeAluno = Console.ReadLine();
+
+Console.Write("Digite a nota do aluno: ");
+notAluno = int.Parse(Console.ReadLine());
+
+status = notAluno >= 85 ? "Aprovado" : "Reprovado";
+
+Console.WriteLine($"O aluno {nomeAluno} está {status} com a nota {notAluno}.");
+
+//FIM Performace de Aluno+++++++++++++++++++++++++++++++++++++
+
+// Cliente++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+string nomeCliente;
+bool ativo = true;
+double saldo = 500;
+string statusCliente;
+
+Console.Write("Digite o nome do cliente: ");
+nomeCliente = Console.ReadLine();
+
+Console.Write("Cadastro do cliente esta ativo (S/N): ");
+ativo = Console.ReadLine().ToLower() == "s" ? true : false;
+
+Console.Write("Digite o saldo do cliente: ");
+saldo = double.Parse(Console.ReadLine());
+
+statusCliente = ativo ? (saldo > 500 ? "cadastro Ativo e com Saldo acima de € 500.00: Habilitado para compras" : "cadastro Ativo e com Saldo abaixo de € 500.00: Nao Habilitado para compras") : (saldo > 500 ? "cadastro Inativo e com Saldo acima de € 500.00: Nao Habilitado para compras" : "cadastro Inativo e com Saldo abaixo de € 500.00: Nao Habilitado para compras");
+Console.WriteLine($"O cliente {nomeCliente} está com o {statusCliente}.");
+
+// Fim Cliente++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Estacionamento++++++++++++++++++++++++++++++++++++++++++++++++
+
+//Declaracao de variaveis
+string nomeDoCliente_E;
+
+// Inputacao de dados
+Console.Write("Digite o nome do cliente: ");
+nomeDoCliente_E = Console.ReadLine();
+           
+Console.Write("Escolha no Menu abaixo, o numero que indica o status do estacionamento :\n" +
+    "1 - FECHADO\n" +
+    "2 - ABERTO\n" +
+    "3 - MANUTENCAO): ");
+int statusVaga = int.Parse(Console.ReadLine());
+
+//Processoamento e Saida de dados
+switch (statusVaga)
+{
+    case 1:
+        Console.WriteLine($"Prezado sr/sra {nomeDoCliente_E} estacionamento esta Fechado.");
+        break;
+    case 2:
+        Console.WriteLine($"Bem vindo sr/sra {nomeDoCliente_E} estacionamento Aberto.");
+        break;
+    case 3:
+        Console.WriteLine($"Prezado sr/sra {nomeDoCliente_E} para um melhor atendimento, o estacionamento esta em Manutencao.");
+        break;
+    default:
+        Console.WriteLine("Vaga inválida.");
+        break;
+}
+// Fim Estacionamento++++++++++++++++++++++++++++++++++++++++++++
+
+// Vendas++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Declaracao de variaveis
+string nomeDoProduto, tipoDeProduto;
+double valorProduto, valorTotal, desconto;
+int quantidadeProduto, codigoProduto;
+
+Console.Write("Escolha no Menu abaixo, o produto que deseja pesquisar :\n" +
+    "1 - Arroz\n" +
+    "2 - Smarthphone\n" +
+    "3 - Jaqueta de Couro\n" +
+    "4 - A menina que roubava livro\n" +
+    "5 - Anel de Formatura");
+codigoProduto = int.Parse(Console.ReadLine());
+
+switch (codigoProduto)
+{
+    case 1:
+        nomeDoProduto = "Arroz";
+        tipoDeProduto = "Alimento";
+        valorProduto = 5.00;
+        desconto = 0.05;
+        break;
+    case 2:
+        nomeDoProduto = "Smarthphone";
+        tipoDeProduto = "Eletronico";
+        valorProduto = 1500.00;
+        desconto = 0.10;
+        break;
+    case 3:
+        nomeDoProduto = "Jaqueta de Couro";
+        tipoDeProduto = "Vestuario";
+        valorProduto = 300.00;
+        desconto = 0.20;
+        break;
+    case 4:
+        nomeDoProduto = "A menina que roubava livro";
+        tipoDeProduto = "Livros";
+        valorProduto = 50.00;
+        desconto = 0.5;
+        break;
+    case 5:
+        nomeDoProduto = "Anel de Formatura";
+        tipoDeProduto = "Joias";
+        valorProduto = 200.00;
+        desconto = 0;
+        break;
+    default:
+        Console.WriteLine("Produto inválido.");
+        return;
+}
+
+Console.Write("Digite a quantidade do produto: ");
+quantidadeProduto = int.Parse(Console.ReadLine());
+valorTotal = valorProduto * quantidadeProduto;
+
+Console.WriteLine($"Produto: {nomeDoProduto}");
+Console.WriteLine($"Tipo: {tipoDeProduto}");
+Console.WriteLine($"Valor unitario: € {valorProduto:0.00}");
+Console.WriteLine($"Quantidade: {quantidadeProduto}");
+Console.WriteLine($"Valor total: € {valorTotal:0.00}");
+Console.WriteLine($"% Desc.: {desconto * 100}%");
+Console.WriteLine($"Valor total do desconto: € {valorTotal * desconto:0.00}");
+Console.WriteLine($"Valor Final: € {valorTotal - (valorTotal * desconto):0.00}");
+
