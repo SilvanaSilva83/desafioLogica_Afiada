@@ -1,0 +1,14 @@
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\bin\Debug\net8.0\desafioDia6_part2.exe
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\bin\Debug\net8.0\desafioDia6_part2.deps.json
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\bin\Debug\net8.0\desafioDia6_part2.runtimeconfig.json
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\bin\Debug\net8.0\desafioDia6_part2.dll
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\bin\Debug\net8.0\desafioDia6_part2.pdb
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\obj\Debug\net8.0\desafioDia6_part2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\obj\Debug\net8.0\desafioDia6_part2.AssemblyInfoInputs.cache
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\obj\Debug\net8.0\desafioDia6_part2.AssemblyInfo.cs
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\obj\Debug\net8.0\desafioDia6_part2.csproj.CoreCompileInputs.cache
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\obj\Debug\net8.0\desafioDia6_part2.dll
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\obj\Debug\net8.0\refint\desafioDia6_part2.dll
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\obj\Debug\net8.0\desafioDia6_part2.pdb
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\obj\Debug\net8.0\desafioDia6_part2.genruntimeconfig.cache
+C:\Users\lis-c\OneDrive - Atlantic TU\DESAFIO 21 DIAS\desafioDia6\desafioDia6_part1\obj\Debug\net8.0\ref\desafioDia6_part2.dll
