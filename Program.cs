@@ -1,105 +1,57 @@
-﻿namespace dia8_part3
+﻿using System.Diagnostics;
+
+namespace dia9
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            double totalVendas = 0;
-            string status;
-            bool entradaValida;// Variável para controlar a entrada válida do usuário
-
-            object[,] checkoutSupermarket = new object[3, 3];
-
-            // Preenchendo a matriz com os dados - Lista de checkouts e seus respectivos clientes
-
-            for (int i = 0; i <checkoutSupermarket.GetLength(0);i++)
-            { 
-                do
-                {               
-                    Console.Write($"Informe numero do Checkout | 1 | 2 | 3 \t");
-                    checkoutSupermarket[i, 0] = Console.ReadLine();
-                    switch(checkoutSupermarket[i, 0])
-                    {
-                        case "1":
-                            checkoutSupermarket[i, 0] = "CheckOut 1";
-                            entradaValida = true; // Entra da válida, sai do loop
-                            break;
-                        case "2":
-                            checkoutSupermarket[i, 0] = "CheckOut 2";
-                            entradaValida = true; 
-                            break;
-                        case "3":
-                            checkoutSupermarket[i, 0] = "CheckOut 3";
-                            entradaValida = true; 
-                            break;
-                        default:
-                            Console.WriteLine("Número inválido. Tente novamente.");
-                            entradaValida = false; // Continua pedindo uma entrada válida
-                            break;
-                    }
-
-                } while (!entradaValida); // Loop até receber uma entrada válida
-
-                Console.Write($"Digite nome do cliente: \t\t");                
-                checkoutSupermarket[i, 1] = Console.ReadLine();
-
-                do
-                { 
-                    Console.Write($"Digite o valor de vendas: \t\t");
-                    if (double.TryParse(Console.ReadLine(), out double checkoutValue))
-                    {
-                        checkoutSupermarket[i, 2] = checkoutValue;
-                        entradaValida = true;// Entra da válida, sai do loop
-                    }
-                    else
-                    {
-                        Console.WriteLine("Valor inválido. Tente novamente.");
-                        entradaValida = false;// Continua pedindo uma entrada válida
-                    }
-                    Console.WriteLine();
-
-                } while (!entradaValida);// Loop até receber uma entrada válida
-            }
-
-            Console.WriteLine(" CheckOut     | Tipo de Cliente | Vendas (€) ");
-            Console.WriteLine("----------------------------------------------");
             
-            // Exibindo os valores da matriz
-            for (int i = 0; i < checkoutSupermarket.GetLength(0); i++)
-            {
-                for (int j = 0; j < checkoutSupermarket.GetLength(1); j++)
-                {
-                    Console.Write(checkoutSupermarket[i, j] + "\t\t");
-                }
+            string[] carrosRankings = new string[10] { "FIAT STRADA", "VOLKSWAGEN POLO", "CHEVROLET ONIX", "HYUNDAI HB20", "FIAT ARGO", "VOLKSWAGEN T - CROSS", "CHEVROLET TRACKE", "HYUNDAI CRETA", "FIAT MOBI", "NISSAN KICKS"};
 
-                totalVendas += Convert.ToDouble(checkoutSupermarket[i, 2]+"\t"); // Somando os valores da coluna de vendas (posição [i, 2])
+            // TOP 5 >>> IndexOf 0 to 4
+            string[] cincoPrimeiros = carrosRankings[..5]; // Slicing the first 5 elements
+            Console.WriteLine("Slicing the first 5 element");
+            Console.WriteLine(string.Join(",\n ", cincoPrimeiros));
+            Console.WriteLine();
 
-                Console.WriteLine();
-            }
+            //Contain >> includes
+            bool contem = false;
+            string pesquisa;
 
-            Console.WriteLine("----------------------------------------------");
-            Console.WriteLine($"Total de vendas: \t\t€ {totalVendas:0.00}");
+            Console.WriteLine("Informe um carro que deseja pesquisar");
+            pesquisa = Console.ReadLine();
+            contem = carrosRankings.Contains(pesquisa);
+            string mensagem = carrosRankings.Contains(pesquisa)? "Carro encontrado!" : "Carro NÃO encontrado!"; // Ternary operator
 
-            // Lista de checkouts e status de atendimento dos clientes
+            Console.WriteLine(mensagem);
+
+            //lastOf
+            Console.WriteLine("Ultimos 5 carros");
+            string[] ultimosCinco = carrosRankings[^5..]; // Slicing the last 5 elements
+            Console.WriteLine(string.Join(",\n ", ultimosCinco));
 
 
-            Console.WriteLine(" Cliente     | Vendas (€) | Status de Atendimento ");
-            Console.WriteLine("----------------------------------------------");
 
-            int contadorAtendimento = checkoutSupermarket.GetLength(0);  // Contador para controlar o atendimento dos clientes
+            string[] cincoUltimos = carrosRankings[10..]; // Slicing from the 10th element to the end
+            Console.WriteLine("Slicing from the 10th element to the end");
+            Console.WriteLine(string.Join(",\n ", cincoUltimos));
+            Console.WriteLine();
 
-            for (int i = 0; i < checkoutSupermarket.GetLength(0); i++)
-            {
-                contadorAtendimento--; // Decrementa o contador a cada atendimento
+            string[] cincoUltimos2 = carrosRankings[2..5]; // Slicing from the 3rd to the 5th element
+            Console.WriteLine("Slicing from the 3rd to the 5th element");
+            Console.WriteLine(string.Join(",\n ", cincoUltimos2));
+            Console.WriteLine();
 
-                if (contadorAtendimento >= 1) //1º cliente atendido
-                    status = "Atendido";
-                else
-                    status = "Em espera"; // Último cliente
-                
-                Console.WriteLine($"{checkoutSupermarket [i,1]}\t | \t{checkoutSupermarket[i, 2]:0.00} | \t{status}");
-            }
+
+            string[] cincoUltimos3 = carrosRankings[15..^5]; // Slicing from the 15rd element to the 2nd last element
+            Console.WriteLine("Slicing from the 15rd element to the 5th last element");
+            Console.WriteLine(string.Join("\n ", cincoUltimos3));
+            Console.WriteLine();
+
+            Console.WriteLine(string.Join(",\n ", cincoPrimeiros));
+            Console.WriteLine(string.Join(",\n ", cincoUltimos));
+
         }
     }
 }
